@@ -16,12 +16,6 @@ let userSchema = new mongoose.Schema({
     }
 });
 
-userSchema.methods = {
-    matchPassword: function (password) {
-        return bcrypt.compare(password, this.password);
-    }
-};
-
 userSchema.pre('save', function (next) {
     if (this.isModified('password')) {
         bcrypt.genSalt(saltRounds, (err, salt) => {
