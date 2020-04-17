@@ -12,5 +12,5 @@ appConfig(app);
 routesConfig(app);
 
 dbConnector().then(() => {
-    app.listen(config.port, console.log(`Listening on port ${config.port}! Now its up to you...`));
+    app.listen(config.port, console.log(`Listening on port ${config.port}!`));
   });
