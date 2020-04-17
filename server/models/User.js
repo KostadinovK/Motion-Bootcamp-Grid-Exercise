@@ -9,7 +9,7 @@ let userSchema = new mongoose.Schema({
         required: [true, 'Username is required!'],
         minlength: [3, 'Username length must be atleast 3 symbols']
     },
-    passsword: {
+    password: {
         type: String,
         required: [true, 'Password is required'],
         minlength: [3, 'Password length should be at least 3 symbols']
@@ -37,4 +37,4 @@ userSchema.pre('save', function (next) {
     next();
 });
 
-module.exports = mongoose.Model('User', userSchema);
+module.exports = mongoose.model('User', userSchema);

@@ -10,4 +10,4 @@ let departmentSchema = new mongoose.Schema({
     employees: [{ type : mongoose.SchemaTypes.ObjectId, ref: 'Employee' }]
 });
 
-module.exports = mongoose.Model('Department', departmentSchema);
+module.exports = mongoose.model('Department', departmentSchema);

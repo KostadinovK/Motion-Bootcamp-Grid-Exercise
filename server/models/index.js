@@ -1,9 +1,9 @@
 const user = require('./User');
-const deprtment = require('./Department');
+const department = require('./Department');
 const employee = require('./Employee');
 
 module.exports = {
-    user,
-    deprtment,
-    employee
+    users: user,
+    departments: department,
+    employees: employee
 }

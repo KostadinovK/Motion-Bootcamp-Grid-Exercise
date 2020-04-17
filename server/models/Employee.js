@@ -28,4 +28,4 @@ let employeeSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.Model('Employee', employeeSchema);
+module.exports = mongoose.model('Employee', employeeSchema);
