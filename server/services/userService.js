@@ -8,8 +8,13 @@ function getByUsername(username) {
     return context.users.findOne({username});
 }
 
+function getById(id){
+    return context.users.findOne({_id: id});
+}
+
 
 module.exports = {
     register,
-    getByUsername
+    getByUsername,
+    getById
 }
