@@ -2,16 +2,17 @@ const employeeService = require('../services/employeeService');
 const departmentService = require('../services/departmentService');
 
 const getAll = (req, res) => {
+    const { sortBy } = req.params;
 
-    employeeService.getAll()
+    employeeService.getAll(sortBy)
     .then(data => res.send(data))
     .catch(err => res.status(400).send(err));
 }
 
 const getAllByDepartment = (req, res) => {
-    const { departmentId } = req.params;
+    const { departmentId, sortBy } = req.params;
 
-    employeeService.getAllByDepartmentId(departmentId)
+    employeeService.getAllByDepartmentId(departmentId, sortBy)
     .then(data => res.send(data))
     .catch(err => res.status(400).send(err));
 }

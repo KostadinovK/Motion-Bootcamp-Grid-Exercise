@@ -4,12 +4,20 @@ function getById(id) {
     return context.employees.findOne({_id: id}).populate('department');
 }
 
-function getAll() {
-    return context.employees.find().populate('department');
+function getAll(sortBy = null) {
+    if(sortBy === null){
+        return context.employees.find().populate('department');
+    }
+
+    return context.employees.find().sort([[sortBy, 1]]).populate('department');
 }
 
-function getAllByDepartmentId(id){
-    return context.employees.find({department: id}).populate('department'); 
+function getAllByDepartmentId(id, sortBy = null) {
+    if(sortBy === null){
+        return context.employees.find({department: id}).populate('department'); 
+    }
+    
+    return context.employees.find({department: id}).sort([[sortBy, 1]]).populate('department');
 }
 
 function add(employeeData){
