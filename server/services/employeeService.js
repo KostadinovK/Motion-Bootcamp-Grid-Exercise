@@ -1,14 +1,33 @@
 const context = require('../models/index');
 
+function getById(id) {
+    return context.employees.findOne({_id: id}).populate('department');
+}
+
 function getAll() {
-    return context.employees.find().populate('Department');
+    return context.employees.find().populate('department');
 }
 
 function getAllByDepartmentId(id){
-    context.employees.find({department: id}).populate('Department');
+    return context.employees.find({department: id}).populate('department'); 
+}
+
+function add(employeeData){
+    const {firstName, lastName, email, position, department} = employeeData;
+
+    return context.employees.create({
+        firstName, lastName, email, position, department
+    });
+}
+
+function remove(id){
+    return context.employees.deleteOne({_id: id});
 }
 
 module.exports = {
+    getById,
     getAll,
-    getAllByDepartmentId
+    getAllByDepartmentId,
+    add,
+    remove
 }

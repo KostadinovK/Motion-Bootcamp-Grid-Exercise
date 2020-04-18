@@ -20,7 +20,7 @@ let employeeSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Position is required!'],
         minlength: [2, 'Position length must be atleast 2 chars'],
-        maxlength: [20, 'Position length must be max 20 characters long']
+        maxlength: [40, 'Position length must be max 20 characters long']
     },
     department: {
         type: mongoose.SchemaTypes.ObjectId,
