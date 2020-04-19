@@ -5,13 +5,21 @@ import './App.css';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import Main from '../Main/Main';
+import Grid from '../Grid/Grid';
+
+function renderCmp(Cmp) {
+  return function () {
+    return <Main><Cmp/></Main>
+  };
+};
 
 function App() {
   return (
     <Router>
       <Header/>
       <Switch>
-        <Route path='/' exact></Route>
+        <Route path='/' exact render={renderCmp(Grid)}></Route>
         <Route path='/register'>Test</Route>
         <Route path='/login'></Route>
         <Route path='/logout'></Route>
