@@ -7,6 +7,8 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Main from '../Main/Main';
 import Grid from '../Grid/Grid';
+import Register from '../Register/Register';
+import Login from '../Login/Login';
 
 function renderCmp(Cmp) {
   return function () {
@@ -20,8 +22,8 @@ function App() {
       <Header/>
       <Switch>
         <Route path='/' exact render={renderCmp(Grid)}></Route>
-        <Route path='/register'>Test</Route>
-        <Route path='/login'></Route>
+        <Route path='/register' render={renderCmp(Register)}></Route>
+        <Route path='/login' render={renderCmp(Login)}></Route>
         <Route path='/logout'></Route>
         <Route path='/department'></Route>
         <Route path='/employee'></Route>

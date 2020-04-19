@@ -1,0 +1,108 @@
+form{
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    margin: 0 auto;
+    margin-left: auto;
+}
+
+form h2{
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: gray;
+}
+
+form .form-link a{
+    margin-left: 1rem;
+    text-decoration: none;
+    color: gray;
+}
+
+form .form-link a:hover{
+    text-decoration: underline;
+}
+
+form input{
+    border-radius: 10px;
+    border: 1px solid gray;
+    outline: none;
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    border-radius: 0px;
+}
+
+form .submitButton{
+    border-radius: 10px;
+    border: 1px solid gray;
+    outline: none;
+    background-color: gray;
+}
+
+form .submitButton:hover{
+    color: white;
+}
+
+form input:focus{
+    border-bottom: 2px solid gray;
+}
+
+form input[type="submit"]{
+    font-size: 1.2rem;
+    outline: none;
+}
+
+form input[type="submit"]:hover{
+    cursor: pointer;
+}
+
+.login-form{
+    padding: 8rem 0rem;
+}
+
+.login-form p.form-link{
+    margin-top: 2rem;
+}
+
+.login-form h2,
+.login-form p,
+.register-form h2,
+.register-form p{
+    flex: 1 1 100%;
+    text-align: center;
+}
+
+
+.login-form p,
+.register-form p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.login-form input,
+.register-form input
+{
+    padding: 0.5rem;
+    margin-left: 1rem;
+    flex: 0 0 30%;
+}
+
+.login-form input[type="submit"],
+.register-form input[type="submit"]
+{
+    flex: 0 0 20%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    padding: 0.3rem;
+}
+
+.register-form{
+    padding: 6rem 0rem;
+}
+
+.register-form .username,
+.register-form .confirm-password{
+    margin-bottom: 2rem;
+}
