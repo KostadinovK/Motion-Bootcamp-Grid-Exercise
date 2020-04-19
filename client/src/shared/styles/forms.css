@@ -71,6 +71,10 @@ form p{
     text-align: center;
 }
 
+.employee-form label{
+    flex: 0 0 10%;
+}
+
 input {
     padding: 0.5rem;
     margin-left: 1rem;
@@ -93,6 +97,7 @@ form{
     margin-bottom: 2rem;
 }
 
-.department-form h2{
+.department-form h2,
+.employee-form h2{
     color: white;
 }

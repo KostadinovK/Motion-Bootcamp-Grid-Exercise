@@ -8,12 +8,12 @@ function Login() {
         <form className="login-form">
             <h2>Login</h2>
             <p className="username">
-                <label for="username"><i class="fas fa-user"></i></label>
-                <input type="text" name="username" placeholder="Username" />
+                <label htmlFor="username"><i class="fas fa-user"></i></label>
+                <input type="text" name="username" id="username" placeholder="Username" />
             </p>
             <p>
-                <label for="password"><i class="fas fa-key"></i></label>
-                <input type="password" name="password" placeholder="Password" />
+                <label htmlFor="pass"><i class="fas fa-key"></i></label>
+                <input type="password" name="password" id="pass" placeholder="Password" />
             </p>
             <input className='submitButton' type="submit" value="Login" />
         </form>

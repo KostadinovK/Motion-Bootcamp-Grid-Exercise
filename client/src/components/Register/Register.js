@@ -8,16 +8,16 @@ function Register() {
         <form className="register-form">
             <h2>Register</h2>
             <p className="username">
-                <label for="username"><i class="fas fa-user"></i></label>
-                <input type="text" name="username" placeholder="Username" />
+                <label htmlFor="username"><i class="fas fa-user"></i></label>
+                <input type="text" name="username" id='username' placeholder="Username" />
             </p>
             <p className="password">
-                <label for="password"><i class="fas fa-key"></i></label>
-                <input type="password" name="password" placeholder="Password" />
+                <label htmlFor="pass"><i class="fas fa-key"></i></label>
+                <input type="password" name="password" id='pass' placeholder="Password" />
             </p>
             <p className="confirm-password">
-                <label for="confirmPassword"><i class="fas fa-key"></i></label>
-                <input type="password" name="confirmPassword" placeholder="Confirm Password" />
+                <label htmlFor="rePass"><i class="fas fa-key"></i></label>
+                <input type="password" name="confirmPassword" id='rePass' placeholder="Confirm Password" />
             </p>
             <input className='submitButton' type="submit" value="Register" />
         </form>
