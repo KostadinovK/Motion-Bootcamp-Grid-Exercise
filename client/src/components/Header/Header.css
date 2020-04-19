@@ -1,0 +1,24 @@
+.site-header{
+    display: flex;
+    align-items: center;
+    background: gray;
+}
+
+.site-header .logo{
+    flex: 0 0 30%;
+    margin-right: auto;
+    padding-left: 1rem;
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 2rem;
+}
+
+.site-header .logo:hover{
+    color: black;
+    cursor: pointer;
+}
+
+.site-header nav{
+    flex: 0 0 60%;
+    margin-left: auto;
+}
