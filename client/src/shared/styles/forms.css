@@ -10,6 +10,8 @@ form h2{
     font-size: 2.5rem;
     margin-bottom: 2rem;
     color: gray;
+    flex: 1 1 100%;
+    text-align: center;
 }
 
 form .form-link a{
@@ -60,49 +62,37 @@ form input[type="submit"]:hover{
     padding: 8rem 0rem;
 }
 
-.login-form p.form-link{
-    margin-top: 2rem;
-}
-
-.login-form h2,
-.login-form p,
-.register-form h2,
-.register-form p{
-    flex: 1 1 100%;
-    text-align: center;
-}
-
-
-.login-form p,
-.register-form p{
+form p{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
+    flex: 1 1 100%;
+    text-align: center;
 }
 
-.login-form input,
-.register-form input
-{
+input {
     padding: 0.5rem;
     margin-left: 1rem;
     flex: 0 0 30%;
 }
 
-.login-form input[type="submit"],
-.register-form input[type="submit"]
-{
+input[type="submit"]{
     flex: 0 0 20%;
     margin: 0 auto;
     margin-top: 2rem;
     padding: 0.3rem;
 }
 
-.register-form{
+form{
     padding: 6rem 0rem;
 }
 
 .register-form .username,
 .register-form .confirm-password{
     margin-bottom: 2rem;
+}
+
+.department-form h2{
+    color: white;
 }

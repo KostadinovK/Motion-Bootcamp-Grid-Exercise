@@ -9,6 +9,7 @@ import Main from '../Main/Main';
 import Grid from '../Grid/Grid';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
+import AddDepartment from '../AddDepartment/AddDepartment';
 
 function renderCmp(Cmp) {
   return function () {
@@ -25,7 +26,7 @@ function App() {
         <Route path='/register' render={renderCmp(Register)}></Route>
         <Route path='/login' render={renderCmp(Login)}></Route>
         <Route path='/logout'></Route>
-        <Route path='/department'></Route>
+        <Route path='/department' render={renderCmp(AddDepartment)}></Route>
         <Route path='/employee'></Route>
         <Route path='/*'>404 - Page Not Found</Route>
       </Switch>

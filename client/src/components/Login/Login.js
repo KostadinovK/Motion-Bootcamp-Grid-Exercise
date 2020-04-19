@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../shared/styles/loginAndRegister.css';
+import '../../shared/styles/forms.css';
 
 function Login() {
     return (
