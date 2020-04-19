@@ -2,6 +2,8 @@ import React from 'react';
 
 import './Grid.css'
 
+import Employee from '../Employee/Employee';
+
 function Grid() {
     return (
         <table>
@@ -16,14 +18,7 @@ function Grid() {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td className="delete">12278e27e521873e587</td>
-                    <td>John</td>
-                    <td>Test</td>
-                    <td><a href="/">johntest@gmail.com</a></td>
-                    <td>React Developer</td>
-                    <td className="filter">Development</td>
-                </tr>
+                <Employee data={{id: '1', firstName: 'John', lastName: 'Test', email: 'johntest@gmail.com', position: 'Developer', department: 'Development'}}></Employee>
             </tbody>
         </table>
     );
