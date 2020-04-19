@@ -1,0 +1,35 @@
+nav ul{
+    display: flex;
+    align-items: center;
+}
+
+nav ul li{
+    flex: 1 1 20%;
+    list-style: none;
+    padding: 1.2rem;
+    text-align: center;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
+
+nav ul li a:hover{
+    color: black;
+    
+}
+
+nav ul li a:after{
+    display: block;
+    content: '';
+    width: 50%;
+    height: 6px;
+    background: white;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    opacity: 0;
+    bottom: 10%;
+}
