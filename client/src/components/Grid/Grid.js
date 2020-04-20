@@ -9,6 +9,7 @@ import employeeService from '../../services/employeeService';
 function Grid() {
 
     let [employees, setEmployees] = useState([]);
+    let [departmentId, setDepartment] = useState(null);
 
     useEffect(() => {
         employeeService.getAll()
@@ -17,7 +18,32 @@ function Grid() {
     }, []);
 
     const sortEmployees = (criteria) => {
+
+        if(criteria === 'department' && departmentId !== null){
+            setDepartment(null);
+            employeeService.sortBy(criteria)
+            .then(data => setEmployees(data))
+            .catch(err => console.log(err));
+            return; 
+        }
+
+        if(departmentId !== null){
+
+            employeeService.sortByInDepartment(departmentId, criteria)
+            .then(data => setEmployees(data))
+            .catch(err => console.log(err));
+
+            return;
+        }
+
         employeeService.sortBy(criteria)
+        .then(data => setEmployees(data))
+        .catch(err => console.log(err));
+    }
+
+    const filterByDepartment = (departmentId) => {
+        setDepartment(departmentId);
+        employeeService.filter(departmentId)
         .then(data => setEmployees(data))
         .catch(err => console.log(err));
     }
@@ -35,7 +61,7 @@ function Grid() {
                 </tr>
             </thead>
             <tbody>
-                {employees.length > 0 ? employees.map(e => (<Employee key={e._id} data={e}></Employee>)) : <tr><td>No Employees</td></tr>}
+                {employees.length > 0 ? employees.map(e => (<Employee key={e._id} data={e} filter={filterByDepartment}></Employee>)) : <tr><td>No Employees</td></tr>}
             </tbody>
         </table>
     );

@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../Grid/Grid.css';
 
-function Employee({data}) {
+function Employee({data, filter}) {
     
     return(
         <tr>
@@ -11,7 +11,7 @@ function Employee({data}) {
             <td>{data.lastName}</td>
             <td><a href="/">{data.email}</a></td>
             <td>{data.position}</td>
-            <td className="filter">{data.department.name}</td>
+            <td className="filter" id={data.department._id} onClick={(e) => filter(e.target.id)}>{data.department.name}</td>
         </tr>
     );
 }
