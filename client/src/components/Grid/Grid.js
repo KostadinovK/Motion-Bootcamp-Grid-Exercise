@@ -16,16 +16,22 @@ function Grid() {
         .catch(err => console.log(err));
     }, []);
 
+    const sortEmployees = (criteria) => {
+        employeeService.sortBy(criteria)
+        .then(data => setEmployees(data))
+        .catch(err => console.log(err));
+    }
+
     return (
         <table>
             <thead>
                 <tr>
-                    <th className="sort">Identification</th>
-                    <th className="sort">First Name</th>
-                    <th className="sort">Last Name</th>
-                    <th className="sort">Email</th>
-                    <th className="sort">Position</th>
-                    <th className="sort">Department</th>
+                    <th className="sort" onClick={() => sortEmployees('_id')}>Identification</th>
+                    <th className="sort" onClick={() => sortEmployees('firstName')}>First Name</th>
+                    <th className="sort" onClick={() => sortEmployees('lastName')}>Last Name</th>
+                    <th className="sort" onClick={() => sortEmployees('email')}>Email</th>
+                    <th className="sort" onClick={() => sortEmployees('position')}>Position</th>
+                    <th className="sort" onClick={() => sortEmployees('department')}>Department</th>
                 </tr>
             </thead>
             <tbody>
