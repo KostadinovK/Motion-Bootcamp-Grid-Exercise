@@ -19,21 +19,17 @@ function Grid() {
 
     const sortEmployees = (criteria) => {
 
-        if(criteria === 'department' && departmentId !== null){
-            setDepartment(null);
-            employeeService.sortBy(criteria)
-            .then(data => setEmployees(data))
-            .catch(err => console.log(err));
-            return; 
-        }
-
-        if(departmentId !== null){
+        if(departmentId !== null && criteria !== 'department'){
 
             employeeService.sortByInDepartment(departmentId, criteria)
             .then(data => setEmployees(data))
             .catch(err => console.log(err));
 
             return;
+        }
+
+        if(criteria === 'department' && departmentId !== null){
+            setDepartment(null);
         }
 
         employeeService.sortBy(criteria)
