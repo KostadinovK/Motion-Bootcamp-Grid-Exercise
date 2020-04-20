@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 import './Grid.css'
 
 import Employee from '../Employee/Employee';
 
+import employeeService from '../../services/employeeService';
+
 function Grid() {
+
+    let [employees, setEmployees] = useState([]);
+
+    useEffect(() => {
+        employeeService.getAll()
+        .then(data => setEmployees(data))
+        .catch(err => console.log(err));
+    }, []);
+
     return (
         <table>
             <thead>
@@ -18,7 +29,7 @@ function Grid() {
                 </tr>
             </thead>
             <tbody>
-                <Employee data={{id: '1', firstName: 'John', lastName: 'Test', email: 'johntest@gmail.com', position: 'Developer', department: 'Development'}}></Employee>
+                {employees.length > 0 ? employees.map(e => (<Employee key={e._id} data={e}></Employee>)) : <tr><td>No Employees</td></tr>}
             </tbody>
         </table>
     );
