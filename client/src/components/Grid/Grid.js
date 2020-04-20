@@ -1,12 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 
 import './Grid.css'
+
+import {UserContext} from '../App/App';
 
 import Employee from '../Employee/Employee';
 
 import employeeService from '../../services/employeeService';
 
 function Grid() {
+    const { isLoggedIn } = useContext(UserContext);
 
     let [employees, setEmployees] = useState([]);
     let [departmentId, setDepartment] = useState(null);
@@ -45,6 +48,8 @@ function Grid() {
     }
 
     const remove = (id) => {
+        if(!isLoggedIn) return;
+
         employeeService.remove(id)
         .then(resp => console.log(resp))
         .catch(err => console.log(err));
@@ -53,8 +58,11 @@ function Grid() {
     };
 
     return (
-        <table>
+        <div>
+            {!isLoggedIn ? <h1 className='warning'>You should be Logged In to remove employees</h1> : ''}
+            <table>
             <thead>
+                
                 <tr>
                     <th className="sort" onClick={() => sortEmployees('_id')}>Identification</th>
                     <th className="sort" onClick={() => sortEmployees('firstName')}>First Name</th>
@@ -68,6 +76,9 @@ function Grid() {
                 {employees.length > 0 ? employees.map(e => (<Employee key={e._id} data={e} filter={filterByDepartment} remove={remove}></Employee>)) : <tr><td>No Employees</td></tr>}
             </tbody>
         </table>
+        </div>
+        
+        
     );
 }
 

@@ -12,6 +12,9 @@ import Login from '../Login/Login';
 import AddDepartment from '../AddDepartment/AddDepartment';
 import AddEmployee from '../AddEmployee/AddEmployee';
 
+
+export const UserContext = React.createContext({isLoggedIn: false});
+
 function renderCmp(Cmp) {
   return function () {
     return <Main><Cmp/></Main>
@@ -20,19 +23,21 @@ function renderCmp(Cmp) {
 
 function App() {
   return (
-    <Router>
-      <Header/>
-      <Switch>
-        <Route path='/' exact render={renderCmp(Grid)}></Route>
-        <Route path='/register' render={renderCmp(Register)}></Route>
-        <Route path='/login' render={renderCmp(Login)}></Route>
-        <Route path='/logout'></Route>
-        <Route path='/department' render={renderCmp(AddDepartment)}></Route>
-        <Route path='/employee' render={renderCmp(AddEmployee)}></Route>
-        <Route path='/*'>404 - Page Not Found</Route>
-      </Switch>
-      <Footer/>
-    </Router>
+    <UserContext.Provider value={{ isLoggedIn: false }}>
+        <Router>
+          <Header />
+          <Switch>
+            <Route path='/' exact render={renderCmp(Grid)}></Route>
+            <Route path='/register' render={renderCmp(Register)}></Route>
+            <Route path='/login' render={renderCmp(Login)}></Route>
+            <Route path='/logout'></Route>
+            <Route path='/department' render={renderCmp(AddDepartment)}></Route>
+            <Route path='/employee' render={renderCmp(AddEmployee)}></Route>
+            <Route path='/*'>404 - Page Not Found</Route>
+          </Switch>
+          <Footer />
+        </Router>
+    </UserContext.Provider>
   );
 }
 

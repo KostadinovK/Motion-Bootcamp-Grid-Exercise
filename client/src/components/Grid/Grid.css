@@ -1,3 +1,8 @@
+.warning{
+    text-align: center;
+    padding: 2rem 0;
+}
+
 table {
     border-collapse: collapse;
     margin: 2em auto;
