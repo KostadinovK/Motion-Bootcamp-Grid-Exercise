@@ -44,6 +44,14 @@ function Grid() {
         .catch(err => console.log(err));
     }
 
+    const remove = (id) => {
+        employeeService.remove(id)
+        .then(resp => console.log(resp))
+        .catch(err => console.log(err));
+
+        setEmployees(employees.filter(e => e._id !== id));
+    };
+
     return (
         <table>
             <thead>
@@ -57,7 +65,7 @@ function Grid() {
                 </tr>
             </thead>
             <tbody>
-                {employees.length > 0 ? employees.map(e => (<Employee key={e._id} data={e} filter={filterByDepartment}></Employee>)) : <tr><td>No Employees</td></tr>}
+                {employees.length > 0 ? employees.map(e => (<Employee key={e._id} data={e} filter={filterByDepartment} remove={remove}></Employee>)) : <tr><td>No Employees</td></tr>}
             </tbody>
         </table>
     );

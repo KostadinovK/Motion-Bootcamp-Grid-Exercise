@@ -32,4 +32,11 @@ function filter(departmentId){
     return fetch(url).then(resp => resp.json());
 }
 
-export default {getAll, sortBy, sortByInDepartment, filter};
+function remove(employeeId){
+    const url = `${baseUrl}/${employeeId}`;
+
+    return fetch(url, { method: 'DELETE'} ).then(resp => resp.json());
+}
+
+
+export default {getAll, sortBy, sortByInDepartment, filter, remove};

@@ -2,11 +2,11 @@ import React from 'react';
 
 import '../Grid/Grid.css';
 
-function Employee({data, filter}) {
-    
+function Employee({data, filter, remove}) {
+
     return(
         <tr>
-            <td className="delete">{data._id}</td>
+            <td className="delete" onClick={(e) => remove(e.target.textContent)}>{data._id}</td>
             <td>{data.firstName}</td>
             <td>{data.lastName}</td>
             <td><a href="/">{data.email}</a></td>
