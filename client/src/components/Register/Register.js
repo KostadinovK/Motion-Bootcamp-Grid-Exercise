@@ -29,26 +29,34 @@ function Register() {
         });
     };
 
+    const validate = (username, pass, rePass) => {
+        if(username.length < 3){
+            return 'Username length must be atleast 3 symbols!';
+        }
+
+        if(pass !== rePass){
+            return 'Passwords must match!';
+        }
+
+        if(pass.length < 3){
+           return 'Password length must be atleast 3 symbols!';
+        }
+
+        return null;
+    }
+
     const register = async (e) => {
         e.preventDefault();
 
         const {username, pass, rePass} = form;
         
-        if(username.length < 3){
-            setError('Username length must be atleast 3 symbols!');
+        const error = validate(username, pass, rePass);
+
+        if(error){
+            setError(error);
             return;
         }
-
-        if(pass !== rePass){
-            setError('Passwords must match!');
-            return;
-        }
-
-        if(pass.length < 3){
-            setError('Password length must be atleast 3 symbols!');
-            return;
-        }
-
+        
         let data = await userService.register(username, pass);
 
         if(data.error){
