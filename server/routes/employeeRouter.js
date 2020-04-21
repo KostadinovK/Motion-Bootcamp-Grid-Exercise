@@ -9,6 +9,6 @@ router.get('/:departmentId', employeeController.get.getAllByDepartment);
 router.get('/:departmentId/:sortBy', employeeController.get.getAllByDepartment);
 
 router.post('/', auth(), employeeController.post.add);
-router.delete('/:id', auth(), employeeController.del.remove);
+router.delete('/:id', /*auth(),*/ employeeController.del.remove);
 
 module.exports = router;

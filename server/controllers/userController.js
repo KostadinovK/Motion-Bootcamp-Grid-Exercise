@@ -3,8 +3,15 @@ const config = require('../config/config')[env];
 const userService = require('../services/userService');
 const bcrypt = require('bcrypt');
 
-const register = (req, res) => {
+const register = async (req, res) => {
     const {username, password} = req.body;
+
+    let user = await userService.getByUsername(username);
+
+    if(user !== null){
+        res.send({error: 'User already registered!'});
+        return;
+    }
 
     userService.register(username, password)
     .then(user => res.send(user))
