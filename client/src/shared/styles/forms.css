@@ -92,6 +92,11 @@ form{
     padding: 6rem 0rem;
 }
 
+form .error{
+    color: red;
+    font-size: 1.2rem;
+}
+
 .register-form .username,
 .register-form .confirm-password{
     margin-bottom: 2rem;
