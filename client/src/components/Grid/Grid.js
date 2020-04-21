@@ -62,7 +62,6 @@ function Grid() {
             {!isLoggedIn ? <h1 className='warning'>You should be Logged In to remove employees</h1> : ''}
             <table>
             <thead>
-                
                 <tr>
                     <th className="sort" onClick={() => sortEmployees('_id')}>Identification</th>
                     <th className="sort" onClick={() => sortEmployees('firstName')}>First Name</th>

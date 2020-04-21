@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import '../../shared/styles/forms.css';
 
+import {UserContext} from '../App/App';
+
 function AddDepartment() {
+
+    const history = useHistory();
+    let {isLoggedIn} = useContext(UserContext);
+
+    if(!isLoggedIn){
+        history.push('/');
+        return null;
+    }
+
     return (
 
         <form className='department-form'>
