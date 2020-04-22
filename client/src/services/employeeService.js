@@ -35,7 +35,10 @@ function filter(departmentId){
 function remove(employeeId){
     const url = `${baseUrl}/${employeeId}`;
 
-    return fetch(url, { method: 'DELETE'} ).then(resp => resp.json());
+    return fetch(url, {
+        method: 'DELETE',
+        credentials: "include"
+    }).then(resp => resp.json());
 }
 
 
