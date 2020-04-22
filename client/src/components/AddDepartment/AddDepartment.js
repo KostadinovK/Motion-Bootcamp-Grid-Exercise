@@ -5,6 +5,8 @@ import '../../shared/styles/forms.css';
 
 import {UserContext} from '../App/App';
 
+import departmentService from '../../services/departmentService';
+
 function AddDepartment() {
 
     const history = useHistory();
@@ -39,7 +41,7 @@ function AddDepartment() {
         return null;
     }
 
-    const addDepartment = (e) => {
+    const addDepartment = async (e) => {
         e.preventDefault();
 
         let { name } = form;
@@ -51,7 +53,14 @@ function AddDepartment() {
             return;
         }
 
-        
+        let data = await departmentService.add(name)
+
+        if(data.error){
+            setError(data.error);
+            return;
+        }
+
+        setError('Department created successfully');
     }
 
     return (
