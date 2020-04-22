@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
 module.exports = (app) => {
+
     let whitelist = ['http://localhost:3000'];
 
     let corsOptions = {
