@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import {useHistory} from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 import '../../shared/styles/forms.css';
 
@@ -9,7 +10,7 @@ import userService from '../../services/userService';
 function Login() {
 
     const history = useHistory();
-    let {isLoggedIn} = useContext(UserContext);
+    let {isLoggedIn, setIsLoggedIn} = useContext(UserContext);
 
     let [form, setForm] = useState({username: '', pass: ''});
     let [error, setError] = useState(null);
@@ -58,9 +59,10 @@ function Login() {
             setError(data.error);
             return;
         }
-     
+        
+        Cookies.set('authCookie', data.token);
+        setIsLoggedIn(true);
         history.push('/');
-        //add cookie change context variable
     };
 
     return (

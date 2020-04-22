@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 import './App.css';
 
@@ -13,7 +14,7 @@ import AddDepartment from '../AddDepartment/AddDepartment';
 import AddEmployee from '../AddEmployee/AddEmployee';
 
 
-export const UserContext = React.createContext({isLoggedIn: false});
+export const UserContext = React.createContext({isLoggedIn: false, setIsLoggedIn: () => {}});
 
 function renderCmp(Cmp) {
   return function () {
@@ -21,9 +22,16 @@ function renderCmp(Cmp) {
   };
 };
 
+function checkIsLoggedIn(){
+    return Cookies.get('authCookie');
+}
+
 function App() {
+
+  let [isLoggedIn, setIsLoggedIn] = useState(checkIsLoggedIn());
+
   return (
-    <UserContext.Provider value={{ isLoggedIn: false }}>
+    <UserContext.Provider value={{isLoggedIn, setIsLoggedIn}}>
         <Router>
           <Header />
           <Switch>
