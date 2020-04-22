@@ -3,7 +3,7 @@ const departmentService = require('../services/departmentService');
 const create = async (req, res) => {
     const { name } = req.body;
 
-    if(name === null || name.length < 2 || name.length > 20) {
+    if(name === null || name.length < 2 || name.length > 30) {
         res.send({error: 'Invalid Department Name Length'});
         return;
     }
