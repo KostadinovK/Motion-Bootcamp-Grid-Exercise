@@ -8,6 +8,10 @@ function getByName(name){
     return context.departments.findOne({name}); 
 }
 
+function getAll(){
+    return context.departments.find(); 
+}
+
 function add(name){
 
     return context.departments.create({
@@ -26,6 +30,7 @@ async function removeEmployee(employeeId, departmentId) {
 module.exports = {
     getById,
     getByName,
+    getAll,
     add,
     addEmployee,
     removeEmployee
