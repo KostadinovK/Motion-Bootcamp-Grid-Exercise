@@ -1,5 +1,14 @@
 const baseUrl = 'http://localhost:5000/api/department';
 
+function getAll(){
+    const url = baseUrl;
+    
+    return fetch(url, {
+        method: 'GET',
+        credentials: 'include'
+    }).then(resp => resp.json());
+}
+
 function add(name){
     const url = baseUrl;
     
@@ -13,4 +22,4 @@ function add(name){
     }).then(resp => resp.json());
 }
 
-export default {add};
+export default {getAll, add};
