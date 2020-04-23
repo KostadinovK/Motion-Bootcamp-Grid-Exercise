@@ -43,10 +43,47 @@ function AddEmployee() {
         })
     }
 
+    const validate = (firstName, lastName, email, position, department) => {
+        if(firstName.length < 2){
+            return 'First Name must be atleast 2 chars long';
+        }
+
+        if(firstName.length > 20){
+            return 'First Name must be max 20 chars long';
+        }
+
+        if(lastName.length < 2){
+            return 'Last Name must be atleast 2 chars long';
+        }
+
+        if(lastName.length > 20){
+            return 'Last Name must be max 20 chars long';
+        }
+
+        if(position.length < 2){
+            return 'Position length must be atleast 2 chars long';
+        }
+
+        if(position.length > 40){
+            return 'Position length must be max 40 chars long';
+        }
+
+        if(department === ''){
+            return 'Invalid Department';
+        }
+    };
+
     function addEmployee(e){
         e.preventDefault();
 
         const {firstName, lastName, email, position, department} = form;
+
+        const error = validate(firstName, lastName, email, position, department);
+
+        if(error){
+            setError(error);
+            return;
+        }
 
         employeeService.add(firstName, lastName, email, position, department)
         .then(resp => setError('Employee added successfully'));
