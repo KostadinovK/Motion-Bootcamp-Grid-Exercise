@@ -32,6 +32,19 @@ function filter(departmentId){
     return fetch(url).then(resp => resp.json());
 }
 
+function add(firstName, lastName, email, position, department){
+    const url = baseUrl;
+  
+    return fetch(url, {
+        method: 'POST',
+        credentials: "include",
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({firstName, lastName, email, position, department})
+    }).then(resp => resp.json());
+}
+
 function remove(employeeId){
     const url = `${baseUrl}/${employeeId}`;
 
@@ -42,4 +55,4 @@ function remove(employeeId){
 }
 
 
-export default {getAll, sortBy, sortByInDepartment, filter, remove};
+export default {getAll, sortBy, sortByInDepartment, filter, add, remove};
