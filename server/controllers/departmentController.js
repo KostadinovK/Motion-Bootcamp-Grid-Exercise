@@ -1,5 +1,11 @@
 const departmentService = require('../services/departmentService');
 
+const getAll = (req, res) => {
+    departmentService.getAll()
+    .then(departments => res.send(departments))
+    .catch(err => res.status(400).send(err));
+}
+
 const create = async (req, res) => {
     const { name } = req.body;
 
@@ -21,6 +27,9 @@ const create = async (req, res) => {
 }
 
 module.exports = {
+    get:{
+        getAll
+    },
     post: {
         create
     }
